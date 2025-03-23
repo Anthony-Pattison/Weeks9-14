@@ -8,7 +8,7 @@ public class EnemyWiggle : MonoBehaviour
 {
     public AnimationCurve curve;
     float maxSize = 0.8f;
-    float minSize = 0.2f;
+   
     public float t;
     public bool turn;
   public IEnumerator OnBatHit;
