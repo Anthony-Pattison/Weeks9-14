@@ -11,6 +11,10 @@ public class TakingMovementAwaywithCoroutine : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 5;
     public float rotationSpeed = 50;
+
+    bool carrying = false;
+    public List<GameObject> moveableBoxes;
+
     void Start()
     {
         StartCoroutine(Moving());
@@ -28,8 +32,27 @@ public class TakingMovementAwaywithCoroutine : MonoBehaviour
             move = true;
             
         }
+        for (int i = 0; i<moveableBoxes.Count; i++) {
+            if (moveableBoxes[i].GetComponent<SpriteRenderer>().bounds.Contains(transform.position))
+            {
+                PickUp(moveableBoxes[i]);
+            }
+        }
     }
-
+    private void PickUp(GameObject t)
+    {
+        Vector2 pos = transform.position;
+        if (Input.GetKey("f") && !carrying)
+        {
+            t.transform.position = pos;
+            carrying = true;
+        }
+        else
+        {
+            carrying = false;
+        }
+        pos = t.transform.position;
+    }
     public IEnumerator Moving()
     {
         
