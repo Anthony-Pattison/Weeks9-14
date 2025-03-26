@@ -15,9 +15,11 @@ public class Knight : MonoBehaviour
     public ParticleSystem PS;
     SpriteRenderer sr;
     public AnimationCurve curve;
-
+    AudioSource Soundsource;
     bool canRun = true;
     bool jumping = true;
+
+    public AudioClip [] sounds;
 
     public float t = 0;
 
@@ -25,8 +27,8 @@ public class Knight : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-    
-       
+
+        Soundsource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -92,5 +94,11 @@ public class Knight : MonoBehaviour
         jumping = true;
         //PS.enableEmission = false;
         //PS.enableEmission = false;
+    }
+    void pickRandomSound()
+    {
+        int i = Random.RandomRange(0, 8);
+    
+        Soundsource.PlayOneShot(sounds[i]);
     }
 }
