@@ -19,7 +19,7 @@ public class Knight : MonoBehaviour
     bool canRun = true;
     bool jumping = true;
 
-    public AudioClip [] sounds;
+    public AudioClip[] sounds;
 
     public float t = 0;
 
@@ -34,17 +34,11 @@ public class Knight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        Debug.Log(Endpos);
 
-        
-        direction = Input.GetAxis("Horizontal");
-
-        
-        
 
         if (canRun)
         {
+            direction = Input.GetAxis("Horizontal");
             transform.position += transform.right * direction * speed * Time.deltaTime;
             sr.flipX = (direction < 0);
             animator.SetFloat("movement", Mathf.Abs(direction));
@@ -57,40 +51,39 @@ public class Knight : MonoBehaviour
         }
         if (Input.GetKey("space") && jumping)
         {
-            isJumping();
-           
-        }
-    }
 
-    private void StopRunning()
-    {
-        canRun = true;
+            isJumping();
+
+        }
     }
 
     private void isJumping()
     {
-        
-        StartCoroutine(Jumpcurve());
         canRun = false;
         jumping = false;
-    }
+        StartCoroutine(Jumpcurve());
 
+    }
+    private void Startrunning()
+    {
+        canRun = true;
+    }
     public IEnumerator Jumpcurve()
     {
         t = 0;
-        
+
         Vector2 pos = transform.position;
         Beginpos = new Vector2(pos.x, pos.y);
         Endpos = new Vector2(pos.x, pos.y + 4);
         PS.Emit(pos, new Vector2(pos.x, pos.y - 3), 1, .5f, Color.grey);
-        while (t < 1f)
+        while (t < .5f)
         {
-            
+            animator.SetFloat("movement", 0);
             t += 0.5f * Time.deltaTime;
             transform.position = Vector2.Lerp(Beginpos, Endpos, curve.Evaluate(t));
             yield return null;
         }
-        canRun = true;
+        Startrunning();
         jumping = true;
         //PS.enableEmission = false;
         //PS.enableEmission = false;
@@ -98,7 +91,7 @@ public class Knight : MonoBehaviour
     void pickRandomSound()
     {
         int i = Random.RandomRange(0, 8);
-    
+
         Soundsource.PlayOneShot(sounds[i]);
     }
 }
