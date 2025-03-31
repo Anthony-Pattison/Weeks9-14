@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb27f513c29a7640be0dce5800aefe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  howMany: 2
+  howMany: 6
   prefab: {fileID: 362173621529142792, guid: db1f28460bb4b2047a73f99c509e540c, type: 3}
   bat: {fileID: 1043446635}
 --- !u!4 &904176419
