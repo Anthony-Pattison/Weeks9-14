@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -90,7 +91,7 @@ public class Knight : MonoBehaviour
     }
     void pickRandomSound()
     {
-        int i = Random.RandomRange(0, 8);
+        int i = Random.RandomRange(0, sounds.Count());
 
         Soundsource.PlayOneShot(sounds[i]);
     }
