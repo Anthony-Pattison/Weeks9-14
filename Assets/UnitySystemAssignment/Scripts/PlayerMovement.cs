@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
             GameObject t = Boxeslist[i];
             Vector2 tempPos = t.transform.position;
             
-            if (Boxeslist[i].GetComponent<SpriteRenderer>().bounds.Contains(transform.position) && !carrying)
+            if (Boxeslist[i].GetComponent<SpriteRenderer>().bounds.Contains(transform.position))
             {
            
                 carring(t);
