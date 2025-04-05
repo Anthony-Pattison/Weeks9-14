@@ -11,7 +11,7 @@ public class ContainerCodeCheck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      Spawnedboxes = BoxManager.GetComponent<BoxManagerSpawner>().Boxes;
+        Spawnedboxes = BoxManager.GetComponent<BoxManagerSpawner>().Boxes;
     }
 
     // Update is called once per frame
@@ -19,11 +19,21 @@ public class ContainerCodeCheck : MonoBehaviour
     {
         for (int i = 0; i < Spawnedboxes.Count; i++)
         {
-            if (GetComponent<SpriteRenderer>().bounds.Contains(Spawnedboxes[i].transform.position) &&Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == ContainerKey)
+            if (GetComponent<SpriteRenderer>().bounds.Contains(Spawnedboxes[i].transform.position))
+
             {
-                Debug.Log("Working");
-                ScoreManager.GetComponent<ScoreKeeper>().currentScore++;
-                BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
+                if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == ContainerKey)
+                {
+                    Debug.Log("Working");
+                    ScoreManager.GetComponent<ScoreKeeper>().currentScore++;
+                    BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
+
+                }
+                else if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey != ContainerKey)
+                {
+                    ScoreManager.GetComponent<ScoreKeeper>().currentScore--;
+                    BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
+                }
             }
         }
     }

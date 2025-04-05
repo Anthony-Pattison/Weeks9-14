@@ -28,29 +28,30 @@ public class PlayerMovement : MonoBehaviour
 
             GameObject t = Boxeslist[i];
             Vector2 tempPos = t.transform.position;
-            
+
             if (Boxeslist[i].GetComponent<SpriteRenderer>().bounds.Contains(transform.position))
             {
-           
+
                 carring(t);
             }
-            
+
         }
         transform.position = PlayerPos;
     }
 
     private void carring(GameObject t)
     {
-        if (Input.GetKeyDown("e"))
+        Vector2 tempPos = t.transform.position;
+        if (Input.GetKey("space") && !carrying)
         {
-            Vector2 tempPos = t.transform.position;
-            tempPos = transform.position;
-            t.transform.position = tempPos;
+
+            t.transform.position = transform.position;
             carrying = true;
         }
         else
         {
             carrying = false;
         }
+
     }
 }
