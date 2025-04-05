@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 290878957}
   - component: {fileID: 290878956}
+  - component: {fileID: 290878958}
   m_Layer: 0
   m_Name: GreenContainer
   m_TagString: Untagged
@@ -308,6 +309,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &290878958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290878955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25de5dc88a6563648a3242fba6f2069a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContainerKey: 3
+  BoxManager: {fileID: 511386977}
+  ScoreManager: {fileID: 872589808}
 --- !u!1 &451505391
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 451505393}
   - component: {fileID: 451505392}
+  - component: {fileID: 451505394}
   m_Layer: 0
   m_Name: BlueContainer
   m_TagString: Untagged
@@ -392,6 +409,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &451505394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451505391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25de5dc88a6563648a3242fba6f2069a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContainerKey: 1
+  BoxManager: {fileID: 511386977}
+  ScoreManager: {fileID: 872589808}
 --- !u!1 &511386977
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 833207625}
   - component: {fileID: 833207624}
+  - component: {fileID: 833207626}
   m_Layer: 0
   m_Name: RedContainer
   m_TagString: Untagged
@@ -715,6 +748,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &833207626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833207623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25de5dc88a6563648a3242fba6f2069a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ContainerKey: 2
+  BoxManager: {fileID: 511386977}
+  ScoreManager: {fileID: 872589808}
 --- !u!1 &872589808
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,10 +1017,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 811201568}
   - {fileID: 774643432}
-  - {fileID: 511386979}
   - {fileID: 833207625}
   - {fileID: 451505393}
   - {fileID: 290878957}
   - {fileID: 273009559}
   - {fileID: 1646826234}
+  - {fileID: 511386979}
   - {fileID: 872589810}

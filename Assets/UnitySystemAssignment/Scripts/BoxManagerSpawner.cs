@@ -55,5 +55,10 @@ public class BoxManagerSpawner : MonoBehaviour
         }
     }
 
+    public void DestroyObject(GameObject t)
+    {
+        Destroy(t);
+        Boxes.Remove(t);
+    }
 }
 
