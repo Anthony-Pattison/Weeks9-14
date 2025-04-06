@@ -17,6 +17,8 @@ public class ScoreKeeper : MonoBehaviour
         if (currentScore == 3)
         {
             BoxManager.GetComponent<BoxManagerSpawner>().CallGoldenBox.Invoke();
+            currentScore++;
         }
     }
+
 }
