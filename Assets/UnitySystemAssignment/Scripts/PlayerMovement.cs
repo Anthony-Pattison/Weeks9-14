@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
 
             if (Boxeslist[i].GetComponent<SpriteRenderer>().bounds.Contains(transform.position))
             {
-
                 carring(t);
             }
 

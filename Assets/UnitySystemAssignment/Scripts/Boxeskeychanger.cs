@@ -1,37 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Boxeskeychanger : MonoBehaviour
 {
+    IEnumerator GoldenBoxIsMoving;
+    
     public bool TimeToDelete = false;
     public int BoxKey;
     public float t = 0;
     public void Spawngoldenbox(GameObject t)
     {
-        StartCoroutine(GoldenBoxMovment(t));
+        StartCoroutine(StartOneGoldenBox(t));
     }
 
     public void Stopgoldenbox(GameObject t)
     {
-        StopCoroutine(GoldenBoxMovment(t));
+
+            Debug.Log("Stoping the box");
+            StopCoroutine(GoldenBoxIsMoving);
+        
     }
 
-    public IEnumerator GoldenBoxMovment(GameObject tempBox)
+    public IEnumerator StartOneGoldenBox(GameObject t)
     {
-        GameObject goldenbox = tempBox;
+         
+        yield return GoldenBoxIsMoving =  GoldenBoxMovment(t);
+    }
+
+    public IEnumerator GoldenBoxMovment(GameObject goldenbox)
+    {
         Vector2 goldenboxPos = goldenbox.transform.position;
-       
-        goldenboxPos.x = -14;
+
+        goldenboxPos.x = -12;
         goldenbox.transform.position = goldenboxPos;
         Vector2 screenpoint = Camera.main.WorldToScreenPoint(goldenboxPos);
 
 
-       
-        while (screenpoint.x <= (Screen.width/2))
+
+        while (screenpoint.x <= (Screen.width / 2))
         {
             screenpoint = Camera.main.WorldToScreenPoint(goldenboxPos);
-            Debug.Log(screenpoint);
+            
             t += 0.1f * Time.deltaTime;
             goldenboxPos.x += t * Time.deltaTime;
             goldenbox.transform.position = goldenboxPos;
