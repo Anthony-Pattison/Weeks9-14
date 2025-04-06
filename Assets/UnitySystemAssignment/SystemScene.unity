@@ -303,7 +303,7 @@ Transform:
   m_GameObject: {fileID: 290878955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.35, y: -1.32, z: 0}
+  m_LocalPosition: {x: -5.43, y: -2.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -456,6 +456,7 @@ MonoBehaviour:
   Boxes: []
   Prefab: {fileID: 4953066290540422223, guid: 39f5c98d25916e0458357d616662bdd8, type: 3}
   howmany: 3
+  t: 1
 --- !u!4 &511386979
 Transform:
   m_ObjectHideFlags: 0

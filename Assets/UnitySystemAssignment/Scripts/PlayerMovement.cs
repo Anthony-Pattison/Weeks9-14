@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void carring(GameObject t)
     {
         Vector2 tempPos = t.transform.position;
-        if (Input.GetKey("space") && !carrying)
+        if (Input.GetKey("space"))
         {
 
             t.transform.position = transform.position;

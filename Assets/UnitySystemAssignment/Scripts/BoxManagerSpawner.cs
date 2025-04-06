@@ -8,18 +8,18 @@ public class BoxManagerSpawner : MonoBehaviour
     public GameObject Prefab;
     int key;
     public int howmany = 3;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    public float t = 1;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("f"))
+        if (Input.GetKeyDown("space"))
+        {
+            StartCoroutine(GoldenBox());
+        }
+        if (Boxes.Count == 0)
         {
             spawnBoxes(howmany);
+            howmany++;
         }
     }
 
@@ -59,6 +59,24 @@ public class BoxManagerSpawner : MonoBehaviour
     {
         Destroy(t);
         Boxes.Remove(t);
+    }
+
+    public IEnumerator GoldenBox()
+    {
+       GameObject goldenbox = Instantiate(Prefab);
+        Boxes.Add(goldenbox);
+        Vector2 goldenboxPos = goldenbox.transform.position;
+        goldenboxPos.x = 14;
+
+        while (t > 0)
+        {
+
+            t -= 0.1f * Time.deltaTime;
+            goldenboxPos.x -= t * Time.deltaTime;
+            goldenbox.transform.position = goldenboxPos;
+            yield return null;
+        }
+
     }
 }
 
