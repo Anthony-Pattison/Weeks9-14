@@ -44,10 +44,19 @@ public class PlayerMovement : MonoBehaviour
         Vector2 tempPos = t.transform.position;
         if (Input.GetKey("space"))
         {
+            if (t.GetComponent<Boxeskeychanger>().BoxKey == 4) {
 
-            t.transform.position = transform.position;
-            carrying = true;
-        }
+                t.GetComponent<Boxeskeychanger>().Stopgoldenbox(t);
+
+                t.transform.position = transform.position;
+                carrying = true;
+            }
+            else
+            {
+                t.transform.position = transform.position;
+                carrying = true;
+            }
+            }
         else
         {
             carrying = false;

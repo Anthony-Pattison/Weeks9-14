@@ -11,6 +11,12 @@ public class Boxeskeychanger : MonoBehaviour
     {
         StartCoroutine(GoldenBoxMovment(t));
     }
+
+    public void Stopgoldenbox(GameObject t)
+    {
+        StopCoroutine(GoldenBoxMovment(t));
+    }
+
     public IEnumerator GoldenBoxMovment(GameObject tempBox)
     {
         GameObject goldenbox = tempBox;
