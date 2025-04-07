@@ -22,7 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerPos.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         PlayerPos.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
-
+        if (Input.GetKey("left shift"))
+        {
+            speed = 5;
+        }
+        else
+        {
+            speed = 3;
+        }
         for (int i = 0; i < Boxeslist.Count; i++)
         {
 
@@ -41,9 +48,10 @@ public class PlayerMovement : MonoBehaviour
     private void carring(GameObject t)
     {
         Vector2 tempPos = t.transform.position;
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") && !carrying)
         {
-            if (t.GetComponent<Boxeskeychanger>().BoxKey == 4) {
+            if (t.GetComponent<Boxeskeychanger>().BoxKey == 4)
+            {
 
                 t.GetComponent<Boxeskeychanger>().Stopgoldenbox(t);
 
@@ -55,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
                 t.transform.position = transform.position;
                 carrying = true;
             }
-            }
+        }
         else
         {
             carrying = false;

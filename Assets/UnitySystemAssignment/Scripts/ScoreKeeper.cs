@@ -7,18 +7,24 @@ public class ScoreKeeper : MonoBehaviour
 {
     public GameObject BoxManager;
     public TextMeshProUGUI score;
-    public int currentScore;
-
+    public float currentScore;
+    float tempscore;
+   
     // Update is called once per frame
     void Update()
     {
+        
         score.text = ("Score: " + currentScore.ToString());
-
-        if (currentScore == 3)
+      
+        if (0 == currentScore % 5)
         {
-            BoxManager.GetComponent<BoxManagerSpawner>().CallGoldenBox.Invoke();
-            currentScore++;
+            unityevent();
         }
+    }
+    void unityevent()
+    {
+        currentScore += 1;
+        BoxManager.GetComponent<BoxManagerSpawner>().CallGoldenBox.Invoke();
     }
 
 }

@@ -24,10 +24,15 @@ public class ContainerCodeCheck : MonoBehaviour
             {
                 if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == ContainerKey)
                 {
-                    Debug.Log("Working");
+
                     ScoreManager.GetComponent<ScoreKeeper>().currentScore++;
                     BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
 
+                }
+                else if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == 4)
+                {
+                    ScoreManager.GetComponent<ScoreKeeper>().currentScore += 2;
+                    BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
                 }
                 else if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey != ContainerKey)
                 {
@@ -36,5 +41,6 @@ public class ContainerCodeCheck : MonoBehaviour
                 }
             }
         }
+
     }
 }

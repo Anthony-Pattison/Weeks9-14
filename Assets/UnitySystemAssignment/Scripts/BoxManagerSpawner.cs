@@ -16,10 +16,6 @@ public class BoxManagerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
-        {
-            //GoldenBox();
-        }
         if (Boxes.Count == 0)
         {
             spawnBoxes(howmany);
@@ -76,7 +72,7 @@ public class BoxManagerSpawner : MonoBehaviour
     {
         goldenbox = Instantiate(Prefab);
         Boxes.Add(goldenbox);
-
+        goldenbox.GetComponent<SpriteRenderer>().color = Color.yellow;
         goldenbox.GetComponent<Boxeskeychanger>().BoxKey = 4;
         goldenbox.GetComponent<Boxeskeychanger>().Spawngoldenbox(goldenbox);
 
