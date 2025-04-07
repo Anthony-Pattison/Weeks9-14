@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     float DirectionofWalk;
     public SpriteRenderer sr;
+    Vector2 PlayerPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 PlayerPos = transform.position;
+        PlayerPos = transform.position;
 
         PlayerPos.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         PlayerPos.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
@@ -63,12 +64,12 @@ public class PlayerMovement : MonoBehaviour
 
                 t.GetComponent<Boxeskeychanger>().Stopgoldenbox(t);
 
-                t.transform.position = transform.position;
+                tempPos = transform.position;
                 carrying = true;
             }
             else
             {
-                t.transform.position = transform.position;
+                tempPos = transform.position;
                 carrying = true;
             }
         }
@@ -76,6 +77,6 @@ public class PlayerMovement : MonoBehaviour
         {
             carrying = false;
         }
-
+        t.transform.position = tempPos;
     }
 }
