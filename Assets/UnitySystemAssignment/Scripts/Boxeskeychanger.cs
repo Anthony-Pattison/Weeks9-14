@@ -55,7 +55,7 @@ public class Boxeskeychanger : MonoBehaviour
     public IEnumerator GoldenBoxMovment(GameObject goldenbox)
     {
         Vector2 goldenboxPos = goldenbox.transform.position;
-        goldenboxPos.y = Random.Range(-4.20f,4.21f);
+        goldenboxPos.y = Random.Range(-3.20f,3.21f);
         goldenboxPos.x = -12;
         goldenbox.transform.position = goldenboxPos;
         Vector2 screenpoint = Camera.main.WorldToScreenPoint(goldenboxPos);

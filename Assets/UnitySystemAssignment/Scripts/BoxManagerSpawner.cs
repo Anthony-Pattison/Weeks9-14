@@ -53,8 +53,8 @@ public class BoxManagerSpawner : MonoBehaviour
             }
 
             Vector2 PrefabPos = Vector2.zero;
-            PrefabPos.x = 1 * Random.Range(-10f, 10f);
-            PrefabPos.y = 1 * Random.Range(-4f, 4f);
+            PrefabPos.x = 1 * Random.Range(-8f, 8f);
+            PrefabPos.y = 1 * Random.Range(-3f, 3f);
 
             NewObject.transform.position = PrefabPos;
 
