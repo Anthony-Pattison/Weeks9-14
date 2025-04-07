@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 3;
     public List<GameObject> Boxeslist;
     bool carrying = false;
-
+    public Animator animator;
+    float DirectionofWalk;
+    public SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
+        
         Boxeslist = BoxManager.GetComponent<BoxManagerSpawner>().Boxes;
     }
 
@@ -22,6 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerPos.x += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         PlayerPos.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
+
+        DirectionofWalk = Input.GetAxis("Horizontal");
+        sr.flipX = (DirectionofWalk < 0);
+        animator.SetFloat("Walkleftani", Mathf.Abs(DirectionofWalk));
+
         if (Input.GetKey("left shift"))
         {
             speed = 5;
