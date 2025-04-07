@@ -10,7 +10,7 @@ public class Boxeskeychanger : MonoBehaviour
 
     public bool TimeToDelete = false;
     public int BoxKey;
-    public float t = 0;
+    public float t = 1;
     public bool StartShrink;
     public AnimationCurve curve;
 
@@ -33,12 +33,14 @@ public class Boxeskeychanger : MonoBehaviour
     public IEnumerator enteredbox(GameObject c)
     {
         Vector2 scale = c.transform.localScale;
-
-        while (t < 1)
-        {
-            t += Time.deltaTime;
-            scale -= Vector2.one * -t;
-            transform.localScale = scale;
+        StartShrink = true;
+        while (t > 0) { 
+        
+            t -= 0.01f * Time.deltaTime;
+            scale.x = t;
+            scale.y = t;
+            Debug.Log(scale);
+            c.transform.localScale = scale;
             yield return null;
         }
         StartShrink = false;

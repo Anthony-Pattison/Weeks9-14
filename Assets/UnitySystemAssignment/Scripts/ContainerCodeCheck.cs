@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ContainerCodeCheck : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ContainerCodeCheck : MonoBehaviour
     public GameObject BoxManager;
     public GameObject ScoreManager;
     List<GameObject> Spawnedboxes;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +26,13 @@ public class ContainerCodeCheck : MonoBehaviour
             {
                 if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == ContainerKey)
                 {
-
-                    ScoreManager.GetComponent<ScoreKeeper>().currentScore++;
-                    BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
-
+                    Spawnedboxes[i].GetComponent<Boxeskeychanger>().StartShink(Spawnedboxes[i]);
+                    
+                    if (!Spawnedboxes[i].GetComponent<Boxeskeychanger>().StartShrink)
+                    {
+                        ScoreManager.GetComponent<ScoreKeeper>().currentScore++;
+                        BoxManager.GetComponent<BoxManagerSpawner>().DestroyObject(Spawnedboxes[i]);
+                    }
                 }
                 else if (Spawnedboxes[i].GetComponent<Boxeskeychanger>().BoxKey == 4)
                 {

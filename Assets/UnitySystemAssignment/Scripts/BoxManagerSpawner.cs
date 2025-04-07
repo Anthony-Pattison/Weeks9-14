@@ -8,7 +8,7 @@ public class BoxManagerSpawner : MonoBehaviour
     public List<GameObject> Boxes;
     public GameObject Prefab;
     GameObject goldenbox;
-
+    
     int key;
     public int howmany = 3;
 
