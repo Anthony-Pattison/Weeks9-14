@@ -23,13 +23,17 @@ public class Knight : MonoBehaviour
     public AudioClip[] sounds;
 
     public float t = 0;
-
+    Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
 
         Soundsource = GetComponent<AudioSource>();
+
+        rb = GetComponent<Rigidbody2D>(); //Gets refrence to rigid body
+        animator = GetComponent<Animator>();
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     // Update is called once per frame
@@ -60,7 +64,7 @@ public class Knight : MonoBehaviour
 
     private void isJumping()
     {
-        canRun = false;
+        //canRun = false;
         jumping = false;
         StartCoroutine(Jumpcurve());
 
